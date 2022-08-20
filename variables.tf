@@ -25,7 +25,6 @@ variable "storage_account_name" {
 variable "container_name" {
   type        = string
   description = "The name of the Tailscale ACI container resrouce"
-  default     = "tailscale"
 }
 
 variable "container_group_name" {

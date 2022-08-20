@@ -1,4 +1,6 @@
 # Terraform module for Tailscale subnet router in ACI
+[![TF Registry](https://img.shields.io/badge/terraform-registry-blue.svg)](https://registry.terraform.io/modules/cocallaw/tailscale-subnet-router/azure/)
+[![GitHub license](https://img.shields.io/github/license/cocallaw/terraform-azure-tailscale-subnet-router?color=orange)](https://github.com/cocallaw/terraform-azure-tailscale-subnet-router/blob/main/LICENSE)
 
 This module deploys a Tailscale [subnet router][1] as an [Azure Container Instance][2]. The subnet router ACI instance is deployed into an existing Azure Virtual Network and advertises to your Tailnet the CIDR block for the Azure VNet.
 

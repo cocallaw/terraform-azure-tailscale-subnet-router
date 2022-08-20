@@ -35,10 +35,10 @@ No modules.
 | <a name="input_container_group_name"></a> [container\_group\_name](#input\_container\_group\_name) | The name of the ACI container group resource | `string` | n/a | yes |
 | <a name="input_container_name"></a> [container\_name](#input\_container\_name) | The name of the Tailscale ACI container resrouce | `string` | `"tailscale"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The Azure region where the subnet router ACI service will be deployed | `string` | n/a | yes |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure Resource Group | `string` | `"myResourceGroup"` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure Resource Group | `any` | n/a | yes |
 | <a name="input_storage_account_name"></a> [storage\_account\_name](#input\_storage\_account\_name) | The name of the storage account to be created for use by the Tailscale ACI container | `string` | n/a | yes |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | The name of the subnet that the Tailscal ACI container will use in the defined vnet | `string` | n/a | yes |
-| <a name="input_tailscale_ACR_repository"></a> [tailscale\_ACR\_repository](#input\_tailscale\_ACR\_repository) | The name of ACR repository where the Tailscale image is stored | `string` | `"myacr.azurecr.io/tailscale"` | no |
+| <a name="input_tailscale_ACR_repository"></a> [tailscale\_ACR\_repository](#input\_tailscale\_ACR\_repository) | The name of ACR repository where the Tailscale image is stored, e.g. myacr.azurecr.io/tailscale | `string` | n/a | yes |
 | <a name="input_tailscale_ACR_repository_password"></a> [tailscale\_ACR\_repository\_password](#input\_tailscale\_ACR\_repository\_password) | The password of the ACR repository where the Tailscale image is stored | `string` | n/a | yes |
 | <a name="input_tailscale_ACR_repository_username"></a> [tailscale\_ACR\_repository\_username](#input\_tailscale\_ACR\_repository\_username) | The username of the ACR repository where the Tailscale image is stored | `string` | n/a | yes |
 | <a name="input_tailscale_advertise_routes"></a> [tailscale\_advertise\_routes](#input\_tailscale\_advertise\_routes) | The CIDR ranges that Tailscale will advertise to your Tailnet | `string` | n/a | yes |

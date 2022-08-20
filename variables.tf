@@ -5,7 +5,6 @@ variable "region" {
 
 variable "resource_group_name" {
   description = "The name of the Azure Resource Group"
-  default     = "myResourceGroup"
 }
 
 variable "vnet_name" {
@@ -36,8 +35,7 @@ variable "container_group_name" {
 
 variable "tailscale_ACR_repository" {
   type        = string
-  description = "The name of ACR repository where the Tailscale image is stored"
-  default     = "myacr.azurecr.io/tailscale"
+  description = "The name of ACR repository where the Tailscale image is stored, e.g. myacr.azurecr.io/tailscale"
 }
 
 variable "tailscale_image_tag" {

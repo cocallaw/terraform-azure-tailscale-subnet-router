@@ -33,7 +33,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_container_group_name"></a> [container\_group\_name](#input\_container\_group\_name) | The name of the ACI container group resource | `string` | n/a | yes |
-| <a name="input_container_name"></a> [container\_name](#input\_container\_name) | The name of the Tailscale ACI container resrouce | `string` | `"tailscale"` | no |
+| <a name="input_container_name"></a> [container\_name](#input\_container\_name) | The name of the Tailscale ACI container resrouce | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The Azure region where the subnet router ACI service will be deployed | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure Resource Group | `any` | n/a | yes |
 | <a name="input_storage_account_name"></a> [storage\_account\_name](#input\_storage\_account\_name) | The name of the storage account to be created for use by the Tailscale ACI container | `string` | n/a | yes |

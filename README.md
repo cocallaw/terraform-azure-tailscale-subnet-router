@@ -71,14 +71,14 @@ When the Tailscale container is deployed, the size is set to 1 CPU core and 1 Gi
 - Add Variable Option to adjust the size of the ACI container. Possible Small/Med/Large options that are available for deployment but easily defined by the user. 
 
 [1]: https://tailscale.com/kb/1019/subnets/
-[2]: https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview
+[2]: https://docs.microsoft.com/azure/container-instances/container-instances-overview
 [3]: https://hub.docker.com/r/tailscale/tailscale
 [4]: https://tailscale.com/kb/1085/auth-keys/
 [5]: https://tailscale.com/kb/1019/subnets/
-[6]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli
-[7]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task
-[8]: https://docs.microsoft.com/en-us/azure/virtual-network/subnet-delegation-overview
-[9]: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction
+[6]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli
+[7]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task
+[8]: https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview
+[9]: https://docs.microsoft.com/azure/storage/files/storage-files-introduction
 [10]: https://tailscale.com/kb/1099/device-authorization/
-[11]: https://docs.microsoft.com/en-us/azure/container-registry/anonymous-pull-access
+[11]: https://docs.microsoft.com/azure/container-registry/anonymous-pull-access
 [12]: https://github.com/hashicorp/terraform-provider-azurerm/issues/15915

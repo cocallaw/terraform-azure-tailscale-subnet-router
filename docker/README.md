@@ -34,5 +34,5 @@ az acr build --registry $ACR_NAME --build-arg TAILSCALE_TAG=v1.29.18 --image tai
 [1]: https://hub.docker.com/r/tailscale/tailscale
 [2]: https://tailscale.com/kb/1085/auth-keys/
 [3]: https://tailscale.com/kb/1019/subnets/
-[4]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli
-[5]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task
+[4]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli
+[5]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task

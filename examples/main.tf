@@ -4,7 +4,7 @@ module "subnet_router" {
 
   region                            = var.region
   resource_group_name               = var.resource_group_name
-  vnet_name                         = var.vnet
+  vnet_name                         = var.vnet_name
   subnet_name                       = var.subnet_name
   storage_account_name              = var.storage_account_name
   container_name                    = var.container_name

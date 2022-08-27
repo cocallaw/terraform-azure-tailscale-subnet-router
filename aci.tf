@@ -1,5 +1,15 @@
 locals {
   container_image = "${var.tailscale_ACR_repository}:${var.tailscale_image_tag}"
+  aci_cpu_cores = {
+    "small" = "1.0"
+    "medium" = "2.0"
+    "large" = "3.0"
+  }
+  aci_memory_size = {
+    "small" = "1.0"
+    "medium" = "2.0"
+    "large" = "4.0"
+  }
 }
 
 resource "azurerm_container_group" "containergroup" {
@@ -13,8 +23,8 @@ resource "azurerm_container_group" "containergroup" {
   container {
     name   = var.container_name
     image  = local.container_image
-    cpu    = 1.0
-    memory = 1.0
+    cpu    = local.aci_cpu_cores[var.container_size]
+    memory = local.aci_memory_size[var.container_size]
 
     ports {
       port     = 443

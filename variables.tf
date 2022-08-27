@@ -27,6 +27,16 @@ variable "container_name" {
   description = "The name of the Tailscale ACI container resrouce"
 }
 
+variable "container_size" {
+  type        = string
+  description = "The size (small/medium/large) of the Tailscale ACI container group resource"
+
+  validation {
+    condition     = contains(["small", "medium", "large"], var.container_size)
+    error_message = "Valid container_size inputs are 'small', 'medium' or 'large'."
+  }
+}
+
 variable "container_group_name" {
   type        = string
   description = "The name of the ACI container group resource"

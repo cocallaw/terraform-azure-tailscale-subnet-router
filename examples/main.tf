@@ -1,6 +1,6 @@
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
-  version = "1.0"
+  version = "1.0.0"
 
   region                            = var.region
   resource_group_name               = var.resource_group_name
@@ -8,6 +8,7 @@ module "subnet_router" {
   subnet_name                       = var.subnet_name
   storage_account_name              = var.storage_account_name
   container_name                    = var.container_name
+  container_size                    = var.container_size
   container_group_name              = var.container_group_name
   tailscale_ACR_repository          = var.tailscale_ACR_repository
   tailscale_image_tag               = var.tailscale_image_tag

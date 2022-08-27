@@ -36,6 +36,21 @@ ACR_NAME=<registry-name>
 az acr build --registry $ACR_NAME --build-arg TAILSCALE_TAG=v1.29.18 --image tailscale:v1 .
 ```
 
+## ACI Size
+The size of the Tailscale ACI container instance can be set using the `container_size` variable, with the values `small`, `medium` or `large`. The CPU and Memory values for S/M/L are defined in `aci.tf`, and can be adjusted by changing the local variable maps for `aci_cpu_cores` and `aci_memory_size`. 
+```bash
+  aci_cpu_cores = {
+    "small" = "1.0"
+    "medium" = "2.0"
+    "large" = "3.0"
+  }
+  aci_memory_size = {
+    "small" = "1.0"
+    "medium" = "2.0"
+    "large" = "4.0"
+  }
+```
+ 
 ## Subnet Delegation 
 To assist with the deployment of the ACI container group in the Azure VNet, the subnet being used should be [delegated][8] to the `Microsoft.ContainerInstance/containerGroups`.
 ```bash

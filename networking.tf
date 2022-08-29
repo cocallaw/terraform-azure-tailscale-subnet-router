@@ -11,7 +11,7 @@ data "azurerm_subnet" "subnet" {
 
 resource "azurerm_network_profile" "acg_network_profile" {
   name                = "acg-profile"
-  location            = var.region
+  location            = data.azurerm_virtual_network.vnet.location
   resource_group_name = var.resource_group_name
 
   container_network_interface {

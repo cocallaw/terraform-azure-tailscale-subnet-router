@@ -2,7 +2,6 @@ module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
   version = "1.0.0"
 
-  region                            = var.region
   resource_group_name               = var.resource_group_name
   vnet_name                         = var.vnet_name
   subnet_name                       = var.subnet_name

@@ -1,15 +1,10 @@
-variable "region" {
-  type        = string
-  description = "The Azure region where the subnet router ACI service will be deployed"
-}
-
 variable "resource_group_name" {
   description = "The name of the Azure Resource Group"
 }
 
 variable "vnet_name" {
   type        = string
-  description = "The name of the Virtual Network that the Trailscale ACI container will be connected to"
+  description = "The name of the Virtual Network that the Trailscale ACI container will be connected to. This Virtual Network must already exist, and will be used to determine the Azure Region that resources will be created in."
 }
 
 variable "subnet_name" {

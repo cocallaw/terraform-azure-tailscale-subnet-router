@@ -72,6 +72,7 @@ az network vnet subnet update \
 
 - The Tailscale state (`/var/lib/tailscale`) is stored in a [Azure File Share][9] in a Storage Account so that the subnet router only needs to be [authorized][10] once.
 
+- The module will use the Region of the existing Azure Virtual Network specified in the variable `vnet_name`, as the region to deploy resources.
 ## Improvements Needed
 
 ### Container Registry Authentication
@@ -81,9 +82,6 @@ Currently the module supports using a username and password to authenticate to t
 - Investigate using a service principal to authenticate to the ACR repository
 - Investigate support for using a [Managed Identity to authenticate to the ACR repository][12]
 
-### Container Size Selection
-When the Tailscale container is deployed, the size is set to 1 CPU core and 1 GiB of memory. Currently there is no option to adjust this size, unless the `aci.tf` file is edited.
-- Add Variable Option to adjust the size of the ACI container. Possible Small/Med/Large options that are available for deployment but easily defined by the user. 
 
 [1]: https://tailscale.com/kb/1019/subnets/
 [2]: https://docs.microsoft.com/azure/container-instances/container-instances-overview

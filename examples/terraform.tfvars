@@ -1,4 +1,3 @@
-region                            = "eastus"
 resource_group_name               = "terraform-test-group"
 vnet_name                         = "myVnet"
 subnet_name                       = "mySubnet"

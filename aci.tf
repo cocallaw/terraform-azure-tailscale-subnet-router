@@ -14,7 +14,7 @@ locals {
 
 resource "azurerm_container_group" "containergroup" {
   name                = var.container_group_name
-  location            = var.region
+  location            = data.azurerm_virtual_network.vnet.location
   resource_group_name = var.resource_group_name
   ip_address_type     = "Private"
   os_type             = "Linux"

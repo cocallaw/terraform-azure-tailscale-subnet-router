@@ -1,14 +1,23 @@
 locals {
-  container_image = "${var.tailscale_ACR_repository}:${var.tailscale_image_tag}"
+  container_image         = "${var.tailscale_ACR_repository}:${var.tailscale_image_tag}"
+  image_registry_username = var.container_source == "DockerHub" ? null : var.tailscale_ACR_repository_username
+  image_registry_password = var.container_source == "DockerHub" ? null : var.tailscale_ACR_repository_password
+  image_registry_server   = var.container_source == "DockerHub" ? null : split("/", var.tailscale_ACR_repository)[0]
+
+  beta_container_image = {
+    "DockerHub" = "cocallaw/tailscale-sr:latest"
+    "ACR"       = "${var.tailscale_ACR_repository}:${var.tailscale_image_tag}"
+  }
+
   aci_cpu_cores = {
-    "small" = "1.0"
+    "small"  = "1.0"
     "medium" = "2.0"
-    "large" = "3.0"
+    "large"  = "3.0"
   }
   aci_memory_size = {
-    "small" = "1.0"
+    "small"  = "1.0"
     "medium" = "2.0"
-    "large" = "4.0"
+    "large"  = "4.0"
   }
 }
 
@@ -22,7 +31,7 @@ resource "azurerm_container_group" "containergroup" {
 
   container {
     name   = var.container_name
-    image  = local.container_image
+    image  = local.beta_container_image[var.container_source]
     cpu    = local.aci_cpu_cores[var.container_size]
     memory = local.aci_memory_size[var.container_size]
 
@@ -49,9 +58,12 @@ resource "azurerm_container_group" "containergroup" {
     }
   }
 
-  image_registry_credential {
-    username = var.tailscale_ACR_repository_username
-    password = var.tailscale_ACR_repository_password
-    server   = split("/", var.tailscale_ACR_repository)[0]
+  dynamic "image_registry_credential" {
+    for_each = var.container_source == "DockerHub" ? [] : [1]
+    content {
+      server   = local.image_registry_server
+      username = local.image_registry_username
+      password = local.image_registry_password
+    }
   }
 }

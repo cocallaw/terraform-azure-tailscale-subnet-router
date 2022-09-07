@@ -1,5 +1,6 @@
 module "subnet_router" {
-  source = "../terraform-azure-tailscale-subnet-router"
+  source  = "cocallaw/tailscale-subnet-router/azure"
+  version = "1.2.0"
 
   resource_group_name               = "myresourcegroup"
   vnet_name                         = "myvnet"

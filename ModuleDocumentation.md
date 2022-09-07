@@ -35,16 +35,17 @@ No modules.
 | <a name="input_container_group_name"></a> [container\_group\_name](#input\_container\_group\_name) | The name of the ACI container group resource | `string` | n/a | yes |
 | <a name="input_container_name"></a> [container\_name](#input\_container\_name) | The name of the Tailscale ACI container resrouce | `string` | n/a | yes |
 | <a name="input_container_size"></a> [container\_size](#input\_container\_size) | The size (small/medium/large) of the Tailscale ACI container group resource | `string` | n/a | yes |
+| <a name="input_container_source"></a> [container\_source](#input\_container\_source) | The source of the Tailscale container image. Valid inputs are 'DockerHub' or 'ACR' | `string` | `"DockerHub"` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure Resource Group | `any` | n/a | yes |
 | <a name="input_storage_account_name"></a> [storage\_account\_name](#input\_storage\_account\_name) | The name of the storage account to be created for use by the Tailscale ACI container | `string` | n/a | yes |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | The name of the subnet that the Tailscal ACI container will use in the defined vnet | `string` | n/a | yes |
-| <a name="input_tailscale_ACR_repository"></a> [tailscale\_ACR\_repository](#input\_tailscale\_ACR\_repository) | The name of ACR repository where the Tailscale image is stored, e.g. myacr.azurecr.io/tailscale | `string` | n/a | yes |
-| <a name="input_tailscale_ACR_repository_password"></a> [tailscale\_ACR\_repository\_password](#input\_tailscale\_ACR\_repository\_password) | The password of the ACR repository where the Tailscale image is stored | `string` | n/a | yes |
-| <a name="input_tailscale_ACR_repository_username"></a> [tailscale\_ACR\_repository\_username](#input\_tailscale\_ACR\_repository\_username) | The username of the ACR repository where the Tailscale image is stored | `string` | n/a | yes |
+| <a name="input_tailscale_ACR_repository"></a> [tailscale\_ACR\_repository](#input\_tailscale\_ACR\_repository) | The name of ACR repository where the Tailscale image is stored, e.g. myacr.azurecr.io/tailscale | `string` | `""` | no |
+| <a name="input_tailscale_ACR_repository_password"></a> [tailscale\_ACR\_repository\_password](#input\_tailscale\_ACR\_repository\_password) | The password of the ACR repository where the Tailscale image is stored | `string` | `""` | no |
+| <a name="input_tailscale_ACR_repository_username"></a> [tailscale\_ACR\_repository\_username](#input\_tailscale\_ACR\_repository\_username) | The username of the ACR repository where the Tailscale image is stored | `string` | `""` | no |
 | <a name="input_tailscale_advertise_routes"></a> [tailscale\_advertise\_routes](#input\_tailscale\_advertise\_routes) | The CIDR ranges that Tailscale will advertise to your Tailnet | `string` | n/a | yes |
 | <a name="input_tailscale_auth_key"></a> [tailscale\_auth\_key](#input\_tailscale\_auth\_key) | The Auth Key that Tailscale container will use to authenticate with and join your Tailnet | `string` | n/a | yes |
 | <a name="input_tailscale_hostname"></a> [tailscale\_hostname](#input\_tailscale\_hostname) | The hostname that Tailscale will use to identify the connected ACI container | `string` | n/a | yes |
-| <a name="input_tailscale_image_tag"></a> [tailscale\_image\_tag](#input\_tailscale\_image\_tag) | The image tag for the Tailscale container stored in the defined ACR | `string` | n/a | yes |
+| <a name="input_tailscale_image_tag"></a> [tailscale\_image\_tag](#input\_tailscale\_image\_tag) | The image tag for the Tailscale container stored in the defined ACR | `string` | `"latest"` | no |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | The name of the Virtual Network that the Trailscale ACI container will be connected to. This Virtual Network must already exist, and will be used to determine the Azure Region that resources will be created in. | `string` | n/a | yes |
 
 ## Outputs

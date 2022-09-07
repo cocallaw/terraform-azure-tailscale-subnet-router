@@ -37,23 +37,38 @@ variable "container_group_name" {
   description = "The name of the ACI container group resource"
 }
 
+variable "container_source" {
+  type        = string
+  default     = "DockerHub"
+  description = "The source of the Tailscale container image. Valid inputs are 'DockerHub' or 'ACR'"
+
+  validation {
+    condition     = contains(["DockerHub", "ACR"], var.container_source)
+    error_message = "Valid container_source inputs are 'DockerHub' or 'ACR'."
+  }
+}
+
 variable "tailscale_ACR_repository" {
   type        = string
+  default     = ""
   description = "The name of ACR repository where the Tailscale image is stored, e.g. myacr.azurecr.io/tailscale"
 }
 
 variable "tailscale_image_tag" {
   type        = string
+  default     = "latest"
   description = "The image tag for the Tailscale container stored in the defined ACR"
 }
 
 variable "tailscale_ACR_repository_username" {
   type        = string
+  default     = ""
   description = "The username of the ACR repository where the Tailscale image is stored"
 }
 
 variable "tailscale_ACR_repository_password" {
   type        = string
+  default     = ""
   sensitive   = true
   description = "The password of the ACR repository where the Tailscale image is stored"
 }

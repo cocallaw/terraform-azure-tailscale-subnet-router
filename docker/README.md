@@ -4,7 +4,7 @@ The `docker/Dockerfile` file extends the `tailscale/tailscale`
 [image][1] with an entrypoint script that starts the Tailscale daemon and runs
 `tailscale up` using an [auth key][2] and the relevant advertised [CIDR block][3].
 
-By default the module will pull the Subnet Router Docker image from [cocallaw/tailscale-sr on Docker Hub][4]. If you prefer to build and push the Docker image to your own Azure Container Registry, you can use the `docker_image` variable to specify `ACR` instead of `DockerHub`.
+By default the module will pull the Subnet Router Docker image from [cocallaw/tailscale-sr on Docker Hub][4]. If you prefer to build and push the Docker image to your own Azure Container Registry, you can use the `container_source` variable to specify `ACR` instead of `DockerHub`.
 
 ### Build locally with Docker and [push image to ACR][4]
 ```bash

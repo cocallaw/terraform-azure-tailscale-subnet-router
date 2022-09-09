@@ -39,7 +39,7 @@ By default the module will pull the Subnet Router Docker image from [cocallaw/ta
 ```bash
 docker build \
   --tag tailscale-subnet-router:v1 \
-  --file ./docker/tailscale.Dockerfile \
+  --file Dockerfile \
   .
 
 # Optionally override the tag for the base `tailscale/tailscale` image

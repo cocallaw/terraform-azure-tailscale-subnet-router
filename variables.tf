@@ -88,3 +88,9 @@ variable "tailscale_auth_key" {
   sensitive   = true
   description = "The Auth Key that Tailscale container will use to authenticate with and join your Tailnet"
 }
+
+variable "tailscale_login_server_parameter" {
+  type        = string
+  description = "Optional URL for alternative login servers such as Headscale. Must include --login-server. Example: '--login-server https://headscale.mydomain.org'"
+  default     = ""
+}

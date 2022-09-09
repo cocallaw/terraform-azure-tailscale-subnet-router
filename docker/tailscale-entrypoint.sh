@@ -57,7 +57,8 @@ TAILSCALED_PID="${!}"
 tailscale up \
   --hostname "${TAILSCALE_HOSTNAME}" \
   --authkey "${TAILSCALE_AUTH_KEY}" \
-  --advertise-routes "${TAILSCALE_ADVERTISE_ROUTES}"
+  --advertise-routes "${TAILSCALE_ADVERTISE_ROUTES}" \
+  "${TAILSCALE_LOGIN_SERVER_PARAMETER}"
 
 ## Wait on `tailscaled`
 

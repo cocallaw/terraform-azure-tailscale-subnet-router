@@ -27,6 +27,28 @@ module "subnet_router" {
   tailscale_auth_key                = "tskey-1234567890-ABCDEFGHIJKLMNOPQRSTUVXYZ"
 }
 ```
+### HeadScale Configuration (Optional)
+If you would like to use [HeadScale][14] an open source, self-hosted implementation of the Tailscale control server, you must specify the Hedscale login server information using the variable `tailscale_login_server_parameter`. The value must include `--login-server`, and only when this variable is set will the deployment use an alternate server, by default it will look to register with the Tailscale control server.
+
+
+```hcl
+module "subnet_router" {
+  source  = "cocallaw/tailscale-subnet-router/azure"
+  version = "1.2.0"
+
+  resource_group_name               = "myresourcegroup"
+  vnet_name                         = "myvnet"
+  subnet_name                       = "mysubnet"
+  storage_account_name              = "mystgacct"
+  container_name                    = "mycontainer"
+  container_size                    = "small"
+  container_group_name              = "mycontainergroup"
+  tailscale_hostname                = "mytailscalehostname"
+  tailscale_advertise_routes        = "10.0.0.0/24"
+  tailscale_auth_key                = "tskey-1234567890-ABCDEFGHIJKLMNOPQRSTUVXYZ"
+  tailscale_login_server_parameter  = "--login-server https://headscale.mydomain.org"
+}
+```
 
 ## Docker Container
 The `docker/Dockerfile` file extends the `tailscale/tailscale`
@@ -101,7 +123,6 @@ az network vnet subnet update \
 
 ### Container Registry Authentication
 Currently the module supports using a username and password to authenticate to the ACR repository, and the server URL is derived from the ACR repository name.
-- Validation testing needed for use with Docker Hub
 - Add Option to use [anonymous pull][12] with ACR
 - Investigate using a service principal to authenticate to the ACR repository
 - Investigate support for using a [Managed Identity to authenticate to the ACR repository][13]
@@ -120,3 +141,4 @@ Currently the module supports using a username and password to authenticate to t
 [11]: https://tailscale.com/kb/1099/device-authorization/
 [12]: https://docs.microsoft.com/azure/container-registry/anonymous-pull-access
 [13]: https://github.com/hashicorp/terraform-provider-azurerm/issues/15915
+[14]: https://github.com/juanfont/headscale

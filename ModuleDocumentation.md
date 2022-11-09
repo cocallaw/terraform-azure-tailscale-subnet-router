@@ -46,6 +46,7 @@ No modules.
 | <a name="input_tailscale_auth_key"></a> [tailscale\_auth\_key](#input\_tailscale\_auth\_key) | The Auth Key that Tailscale container will use to authenticate with and join your Tailnet | `string` | n/a | yes |
 | <a name="input_tailscale_hostname"></a> [tailscale\_hostname](#input\_tailscale\_hostname) | The hostname that Tailscale will use to identify the connected ACI container | `string` | n/a | yes |
 | <a name="input_tailscale_image_tag"></a> [tailscale\_image\_tag](#input\_tailscale\_image\_tag) | The image tag for the Tailscale container stored in the defined ACR | `string` | `"latest"` | no |
+| <a name="input_tailscale_login_server_parameter"></a> [tailscale\_login\_server\_parameter](#input\_tailscale\_login\_server\_parameter) | Optional URL for alternative login servers such as Headscale. Must include --login-server. Example: '--login-server https://headscale.mydomain.org' | `string` | `""` | no |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | The name of the Virtual Network that the Trailscale ACI container will be connected to. This Virtual Network must already exist, and will be used to determine the Azure Region that resources will be created in. | `string` | n/a | yes |
 
 ## Outputs

@@ -34,7 +34,7 @@ If you would like to use [HeadScale][14] an open source, self-hosted implementat
 ```hcl
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
-  version = "1.2.0"
+  version = "1.4.0"
 
   resource_group_name               = "myresourcegroup"
   vnet_name                         = "myvnet"

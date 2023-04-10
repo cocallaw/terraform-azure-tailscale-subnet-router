@@ -13,7 +13,7 @@ The following configuration is the minimum required to deploy a Tailscale subnet
 ```hcl
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
-  version = "1.2.0"
+  version = "1.4.0"
 
   resource_group_name               = "myresourcegroup"
   vnet_name                         = "myvnet"

@@ -1,3 +1,8 @@
+provider "azurerm" {
+  features {}
+  # subscription_id = "00000000-0000-0000-0000-000000000000" # Optional: specify subscription ID if needed
+}
+
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
   version = "1.2.0"

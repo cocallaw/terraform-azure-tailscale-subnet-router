@@ -27,7 +27,7 @@ provider "azurerm" {
 
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
-  version = "1.4.0"
+  version = "1.5.0"
 
   resource_group_name               = "myresourcegroup"
   vnet_name                         = "myvnet"
@@ -52,7 +52,7 @@ provider "azurerm" {
 
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
-  version = "1.4.0"
+  version = "1.5.0"
 
   resource_group_name               = "myresourcegroup"
   vnet_name                         = "myvnet"

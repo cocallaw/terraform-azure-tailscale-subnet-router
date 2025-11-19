@@ -14,7 +14,8 @@ variable "subnet_name" {
 
 variable "storage_account_name" {
   type        = string
-  description = "The name of the storage account to be created for use by the Tailscale ACI container"
+  default     = ""
+  description = "The name of the storage account to be created for use by the Tailscale ACI container. Required when enable_state_persistence is true."
 }
 
 variable "container_name" {
@@ -93,4 +94,10 @@ variable "tailscale_login_server_parameter" {
   type        = string
   description = "Optional URL for alternative login servers such as Headscale. Must include --login-server. Example: '--login-server https://headscale.mydomain.org'"
   default     = ""
+}
+
+variable "enable_state_persistence" {
+  type        = bool
+  default     = true
+  description = "Whether to persist Tailscale state in Azure File Share. Set to false when using ephemeral auth keys where the device is automatically removed from the Tailnet when it goes offline."
 }

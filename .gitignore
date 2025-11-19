@@ -30,3 +30,7 @@ override.tf.json
 # example: *tfplan*
 
 .DS_store
+
+# Terraform binary and zip
+terraform
+terraform.zip

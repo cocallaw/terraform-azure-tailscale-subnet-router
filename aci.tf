@@ -50,12 +50,15 @@ resource "azurerm_container_group" "containergroup" {
       "TAILSCALE_AUTH_KEY" = var.tailscale_auth_key
     }
 
-    volume {
-      name                 = "tailscale-volume"
-      mount_path           = "/var/lib/tailscale"
-      storage_account_name = azurerm_storage_account.aci_storage.name
-      storage_account_key  = azurerm_storage_account.aci_storage.primary_access_key
-      share_name           = azurerm_storage_share.aci_share.name
+    dynamic "volume" {
+      for_each = var.enable_state_persistence ? [1] : []
+      content {
+        name                 = "tailscale-volume"
+        mount_path           = "/var/lib/tailscale"
+        storage_account_name = azurerm_storage_account.aci_storage[0].name
+        storage_account_key  = azurerm_storage_account.aci_storage[0].primary_access_key
+        share_name           = azurerm_storage_share.aci_share[0].name
+      }
     }
   }
 

@@ -68,6 +68,33 @@ module "subnet_router" {
 }
 ```
 
+### Ephemeral Auth Keys Configuration (Optional)
+Tailscale provides an option to generate [ephemeral auth keys][15], meaning that once the machine goes offline it will be automatically removed from the Tailnet. When using ephemeral keys, you can set `enable_state_persistence` to `false` to skip creating the Storage Account and Azure File Share, as state persistence is not needed for ephemeral deployments.
+
+```hcl
+provider "azurerm" {
+  features {}
+}
+
+module "subnet_router" {
+  source  = "cocallaw/tailscale-subnet-router/azure"
+  version = "1.5.0"
+
+  resource_group_name        = "myresourcegroup"
+  vnet_name                  = "myvnet"
+  subnet_name                = "mysubnet"
+  container_name             = "mycontainer"
+  container_size             = "small"
+  container_group_name       = "mycontainergroup"
+  tailscale_hostname         = "mytailscalehostname"
+  tailscale_advertise_routes = "10.0.0.0/24"
+  tailscale_auth_key         = "tskey-1234567890-ABCDEFGHIJKLMNOPQRSTUVXYZ"
+  enable_state_persistence   = false
+}
+```
+
+**Note:** When `enable_state_persistence` is set to `false`, the `storage_account_name` variable is not required.
+
 ## Docker Container
 The `docker/Dockerfile` file extends the `tailscale/tailscale`
 [image][3] with an entrypoint script that starts the Tailscale daemon and runs
@@ -134,7 +161,7 @@ az network vnet subnet update \
 ```    
 ## Notes
 
-- The Tailscale state (`/var/lib/tailscale`) is stored in a [Azure File Share][10] in a Storage Account so that the subnet router only needs to be [authorized][11] once.
+- By default, the Tailscale state (`/var/lib/tailscale`) is stored in an [Azure File Share][10] in a Storage Account so that the subnet router only needs to be [authorized][11] once. When using [ephemeral auth keys][15], you can disable state persistence by setting `enable_state_persistence` to `false`.
 
 - The module will use the Region of the existing Azure Virtual Network specified in the variable `vnet_name`, as the region to deploy resources.
 ## Improvements Needed
@@ -160,3 +187,4 @@ Currently the module supports using a username and password to authenticate to t
 [12]: https://docs.microsoft.com/azure/container-registry/anonymous-pull-access
 [13]: https://github.com/hashicorp/terraform-provider-azurerm/issues/15915
 [14]: https://github.com/juanfont/headscale
+[15]: https://tailscale.com/kb/1111/ephemeral-nodes/

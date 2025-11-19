@@ -7,13 +7,27 @@ This module deploys a Tailscale [subnet router][1] as an [Azure Container Instan
 ## Usage
 To use this module, you must have a Tailscale account to generate a Tailscale auth key, and you must have an existing Azure Virtual Network to associate the ACI Subnet Router with.
 
+### Provider Configuration
+This module requires the Azure provider to be configured in your root module. You can configure the provider with a subscription ID if needed:
+
+```hcl
+provider "azurerm" {
+  features {}
+  # subscription_id = "00000000-0000-0000-0000-000000000000" # Optional: specify subscription ID if needed
+}
+```
+
 ### Minimum Required Configuration
 The following configuration is the minimum required to deploy a Tailscale subnet router ACI instance into an existing Azure Virtual Network.
 
 ```hcl
+provider "azurerm" {
+  features {}
+}
+
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
-  version = "1.4.0"
+  version = "1.5.0"
 
   resource_group_name               = "myresourcegroup"
   vnet_name                         = "myvnet"
@@ -32,9 +46,13 @@ If you would like to use [HeadScale][14] an open source, self-hosted implementat
 
 
 ```hcl
+provider "azurerm" {
+  features {}
+}
+
 module "subnet_router" {
   source  = "cocallaw/tailscale-subnet-router/azure"
-  version = "1.4.0"
+  version = "1.5.0"
 
   resource_group_name               = "myresourcegroup"
   vnet_name                         = "myvnet"

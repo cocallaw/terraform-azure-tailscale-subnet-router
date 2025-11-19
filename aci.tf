@@ -41,8 +41,8 @@ resource "azurerm_container_group" "containergroup" {
     }
 
     environment_variables = {
-      "TAILSCALE_HOSTNAME"         = var.tailscale_hostname
-      "TAILSCALE_ADVERTISE_ROUTES" = var.tailscale_advertise_routes
+      "TAILSCALE_HOSTNAME"               = var.tailscale_hostname
+      "TAILSCALE_ADVERTISE_ROUTES"       = var.tailscale_advertise_routes
       "TAILSCALE_LOGIN_SERVER_PARAMETER" = var.tailscale_login_server_parameter
     }
 
